@@ -1,17 +1,19 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Navbar = () => {
     return (
+        
         <div>
             <div className="navbar bg-base-100 shadow-sm">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <ul
                             className=" flex gap-5 ">
-                            <li><a>Home</a></li>
-                            <li><a>Destination</a></li>
-                            <li><a>My Bookings</a></li>
-                            <li><a>Admin</a></li>
+                            <li><Link href="/home">Home</Link></li>
+                            <li><Link href={`/add-destination`}>Destination</Link></li>
+                            <li><Link href={`/bookings`}>My Bookings</Link></li>
+                            <li><Link href={`/admin`}>Admin</Link></li>
                         </ul>
                     </div>
                 </div>
@@ -21,9 +23,9 @@ const Navbar = () => {
                 <div className="navbar-end">
                     <ul
                         className=" flex gap-5">
-                        <li><a>Profile</a></li>
-                        <li><a>Login</a></li>
-                        <li><a>Sign-Up</a></li>
+                        <li><Link href={`profile`}>Profile</Link></li>
+                        <li><Link href={`login`}>Login</Link></li>
+                        <li><Link href={`signup`}>Sign-Up</Link></li>
                     </ul>
                 </div>
             </div>
