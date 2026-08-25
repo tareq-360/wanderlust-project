@@ -1,5 +1,5 @@
-import CardPage from "@/components/Card";
 import Hero from "@/components/Hero";
+import CardPage from "../cards/page";
 
 const HomePage = () => {
     return (

@@ -1,4 +1,6 @@
 import { Button, Card, CloseButton } from "@heroui/react";
+import Link from "next/link";
+import { LuMoveUpRight } from "react-icons/lu";
 
 const CardPage = async () => {
     const res = await fetch('http://localhost:5000/destination');
@@ -11,11 +13,11 @@ const CardPage = async () => {
 
         <div className=" grid grid-cols-2 gap-5 py-5">
             {data.map(des =>
-                <Card key={des._id} className="w-full items-stretch md:flex-row">
-                    <div className="relative h-[140px] w-full shrink-0 overflow-hidden rounded-2xl sm:h-[120px] sm:w-[120px]">
+                <Card key={des._id} className="flex  w-full items-stretch">
+                    <div className="relative  shrink-0 overflow-hidden rounded-2xl ">
                         <img
                             alt="Cherries"
-                            className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover select-none"
+                            className="pointer-events-none h-[300px] w-full scale-125 object-cover select-none"
                             loading="lazy"
                             src={des.imageUrl}
                         />
@@ -33,7 +35,10 @@ const CardPage = async () => {
                                 <span className="text-sm font-medium text-foreground">{des.duration}</span>
                                 <span className="text-xs text-muted">Submission Data {des.departureDate}</span>
                             </div>
-                            <Button className="w-full sm:w-auto">Apply Now</Button>
+                            <Link href={`cards/${des._id}`}>
+                                <Button className="w-full btn text-cyan-500 btn-outline sm:w-auto">Book Now <LuMoveUpRight />
+                                </Button>
+                            </Link>
                         </Card.Footer>
                     </div>
                 </Card>)}

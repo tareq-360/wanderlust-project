@@ -1,4 +1,4 @@
-import CardPage from "@/components/Card";
+import CardPage from "@/app/cards/page";
 import Hero from "@/components/Hero";
 import Image from "next/image";
 
