@@ -6,6 +6,7 @@ import { LuMoveLeft, LuMoveUpRight } from 'react-icons/lu';
 import { MdOutlineDownloadDone } from 'react-icons/md';
 import { CiEdit } from "react-icons/ci";
 import ShowModal from '@/components/ShowModal';
+import { DeleteAlert } from '@/components/DeleteAlert';
 
 const DestinationDetailsPage = async ({ params }) => {
     const { id } = await params;
@@ -14,7 +15,7 @@ const DestinationDetailsPage = async ({ params }) => {
     const data = await res.json();
 
 
-    
+
 
     // console.log(data);
 
@@ -25,7 +26,10 @@ const DestinationDetailsPage = async ({ params }) => {
                     Back</button>
             </Link> */}
             <Card key={data._id} className="flex  w-full items-stretch">
-                <ShowModal id={id} data={data}></ShowModal>
+                <div className=' flex justify-end pr-10 gap-5'>
+                    <ShowModal id={id} data={data}></ShowModal>
+                    <DeleteAlert id={id} data={data} ></DeleteAlert>
+                </div>
                 <div className="relative  shrink-0 overflow-hidden rounded-2xl ">
                     <img
                         alt="Cherries"
