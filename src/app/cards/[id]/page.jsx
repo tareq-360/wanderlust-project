@@ -1,14 +1,20 @@
+
 import Link from 'next/link';
 import { Button, Card, CloseButton } from "@heroui/react";
 import React from 'react';
 import { LuMoveLeft, LuMoveUpRight } from 'react-icons/lu';
 import { MdOutlineDownloadDone } from 'react-icons/md';
+import { CiEdit } from "react-icons/ci";
+import ShowModal from '@/components/ShowModal';
 
 const DestinationDetailsPage = async ({ params }) => {
     const { id } = await params;
     // console.log("id = ",id);
     const res = await fetch(`http://localhost:5000/details/${id}`);
     const data = await res.json();
+
+
+    
 
     // console.log(data);
 
@@ -19,6 +25,7 @@ const DestinationDetailsPage = async ({ params }) => {
                     Back</button>
             </Link> */}
             <Card key={data._id} className="flex  w-full items-stretch">
+                <ShowModal id={id} data={data}></ShowModal>
                 <div className="relative  shrink-0 overflow-hidden rounded-2xl ">
                     <img
                         alt="Cherries"
