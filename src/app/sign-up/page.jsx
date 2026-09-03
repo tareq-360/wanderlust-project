@@ -40,7 +40,7 @@ export default function Signup() {
     const data = await authClient.signIn.social({
       provider: "github"
     })
-  }
+    }
     return (
       <div className="py-10 mx-auto container h-screen bg-slate-200">
         <div className=" flex justify-center ">
